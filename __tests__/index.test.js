@@ -60,17 +60,17 @@ describe("getHighestMetascore()", () => {
 });
 
 describe("getAverageIMDBRating()", () => {
-  test.only("should return the average IMDB rating across all movies", () => {
+  test("should return the average IMDB rating across all movies", () => {
     const actual = getAverageIMDBRating(movies);
     const expected = 7.76;
     expect(actual).toBeCloseTo(expected, 2);
   });
-  test.only("should dynamically change depending on the movies inputted", () => {
+  test("should dynamically change depending on the movies inputted", () => {
     const actual = getAverageIMDBRating(alternative);
     const expected = 7.6;
     expect(actual).toBeCloseTo(expected, 2);
   });
-  test.only("should return `0` if there are no movies", () => {
+  test("should return `0` if there are no movies", () => {
     const actual = getAverageIMDBRating([]);
     const expected = 0;
     expect(actual).toBeCloseTo(expected, 2);
@@ -96,7 +96,7 @@ describe("countByRating()", () => {
 });
 
 describe("findById()", () => {
-  test("should return the entire movie based on the IMDB ID", () => {
+  test.only("should return the entire movie based on the IMDB ID", () => {
     const id = "tt0892769";
     const actual = findById(movies, id);
     expect(actual.imdbID).toEqual("tt0892769");
@@ -105,7 +105,7 @@ describe("findById()", () => {
       "https://m.media-amazon.com/images/M/MV5BMjA5NDQyMjc2NF5BMl5BanBnXkFtZTcwMjg5ODcyMw@@._V1_SX300.jpg"
     );
   });
-  test("should dynamically change depending on the IMDB ID inputted", () => {
+  test.only("should dynamically change depending on the IMDB ID inputted", () => {
     const id = "tt1979376";
     const actual = findById(movies, id);
     expect(actual.imdbID).toEqual("tt1979376");
@@ -114,7 +114,7 @@ describe("findById()", () => {
       "https://m.media-amazon.com/images/M/MV5BMTYzMDM4NzkxOV5BMl5BanBnXkFtZTgwNzM1Mzg2NzM@._V1_SX300.jpg"
     );
   });
-  test("should dynamically change depending on the movies inputted", () => {
+  test.only("should dynamically change depending on the movies inputted", () => {
     const id = "tt1074638";
     const actual = findById(alternative, id);
     expect(actual.imdbID).toEqual("tt1074638");

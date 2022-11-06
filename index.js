@@ -99,15 +99,18 @@ function getAverageIMDBRating(movies) {
     return (0)
   }
   // creat new Arr to capture Ratings
-  let ratingsArr
+  let ratingsArr = []
+  let sum = 0
   // interate over the movies Arr
-  for (i in movies){
+  for (i=0; i< movies.length; i++){
     //capture imdbRating to ratingsArr
-    ratingsArr.push(movies[i].imdbRating)
+    ratingsArr.push(Number(movies[i].imdbRating))
   }
   //find average rating
-  
-  
+  for(j=0; j<ratingsArr.length; j++){
+    sum += ratingsArr[j]
+  }
+  return (sum/ratingsArr.length)
 }
 
 /**
@@ -160,7 +163,15 @@ return (newObj)
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies,id) {
+// if movie Arr is empty return {}
+for(i in movies){
+if((movies.length === 0) || (id != movies[i].imdbID)){
+  return (null)
+}
+} 
+
+}
 
 /**
  * filterByGenre()
