@@ -30,18 +30,18 @@ const exampleMovies = require("./movies");
  */
 function getAllMovieTitles(movies) {
   // create empty movie Arr
-  let movieList = []
+  let movieListArr = []
   //if  movie Arr is empty returns []
   if(movies.length === 0){
-    return movieList
+    return movieListArr
   }
  //iterate over movie Arr 
  for(i in movies){
  //add movie titles to movieList Arr
- movieList.push(movies[i].title)
+ movieListArr.push(movies[i].title)
 }
 // return movie list
-return movieList
+return movieListArr
 
 }
 
@@ -62,12 +62,24 @@ if(movies.length === 0){
   return (0)
 }
 // create empty Arr to tally up metacores
-let scores = []
+let strScoreArr = []
+let numScoreArr = []
 // iterate throughh movies to check each index
 for( i in movies){
-  scores.push(movies[i].metascore)
+  //add metascore to scores Arr as numbers
+  strScoreArr.push((movies[i].metascore))
+  } 
+for(i in strScoreArr){
+  numScoreArr.push(parseInt(strScoreArr[i]))
 }
 
+function orderedNumbers(a,b){
+  return a - b
+}
+
+numScoreArr.sort(orderedNumbers)
+
+return numScoreArr[numScoreArr.length-1]
 }
 
 /**
@@ -81,7 +93,22 @@ for( i in movies){
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {
+  // if movie Arr is empty return 0
+  if(movies.length === 0){
+    return (0)
+  }
+  // creat new Arr to capture Ratings
+  let ratingsArr
+  // interate over the movies Arr
+  for (i in movies){
+    //capture imdbRating to ratingsArr
+    ratingsArr.push(movies[i].imdbRating)
+  }
+  //find average rating
+  
+  
+}
 
 /**
  * countByRating()
@@ -94,7 +121,30 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+// if movie Arr is empty return {}
+if(movies.length === 0){
+  return {}
+}
+newObj = {}
+ratingSame = []
+ratingDiff = []
+//create loop through movies Arr
+for(i in movies){
+  // if(movies[i].rated == movies[i].rated)
+  for(j = 0; j< movies.length; j++){
+    if(movies[i].rated === movies[j].rated){
+ratingSame.push(movies[j].rated)
+    }
+    else ratingDiff.push(movies[j].rated)
+  }
+
+newObj[movies[i].rated] = ratingSame.length
+}
+return (newObj)
+//
+
+}
 
 /**
  * findById()
