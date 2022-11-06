@@ -96,7 +96,7 @@ describe("countByRating()", () => {
 });
 
 describe("findById()", () => {
-  test.only("should return the entire movie based on the IMDB ID", () => {
+  test("should return the entire movie based on the IMDB ID", () => {
     const id = "tt0892769";
     const actual = findById(movies, id);
     expect(actual.imdbID).toEqual("tt0892769");
@@ -105,7 +105,7 @@ describe("findById()", () => {
       "https://m.media-amazon.com/images/M/MV5BMjA5NDQyMjc2NF5BMl5BanBnXkFtZTcwMjg5ODcyMw@@._V1_SX300.jpg"
     );
   });
-  test.only("should dynamically change depending on the IMDB ID inputted", () => {
+  test("should dynamically change depending on the IMDB ID inputted", () => {
     const id = "tt1979376";
     const actual = findById(movies, id);
     expect(actual.imdbID).toEqual("tt1979376");
@@ -114,7 +114,7 @@ describe("findById()", () => {
       "https://m.media-amazon.com/images/M/MV5BMTYzMDM4NzkxOV5BMl5BanBnXkFtZTgwNzM1Mzg2NzM@._V1_SX300.jpg"
     );
   });
-  test.only("should dynamically change depending on the movies inputted", () => {
+  test("should dynamically change depending on the movies inputted", () => {
     const id = "tt1074638";
     const actual = findById(alternative, id);
     expect(actual.imdbID).toEqual("tt1074638");

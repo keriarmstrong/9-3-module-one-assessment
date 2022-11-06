@@ -165,12 +165,15 @@ return (newObj)
  */
 function findById(movies,id) {
 // if movie Arr is empty return {}
+if((movies.length === 0) || (id != movies.imdbID)){
+    result = (null)
 for(i in movies){
-if((movies.length === 0) || (id != movies[i].imdbID)){
-  return (null)
+if (movies[i].imdbID == id){
+  result = movies[i]
 }
-} 
-
+}
+}
+return result
 }
 
 /**
